@@ -1,15 +1,12 @@
 import useTicTacToe from "../hooks/useTicTacToe";
 
-
-
-
 const TicTacToe = () => {
-  const  { board, handleClick, calculateWinner, resetGame, getStatusMessage } = useTicTacToe();
+  const { board, handleClick, calculateWinner, resetGame, getStatusMessage } =
+    useTicTacToe();
 
-    const winner = calculateWinner(board);
-    const isDraw = !winner && !board.includes(null);
+  const winner = calculateWinner(board);
+  const isDraw = !winner && !board.includes(null);
 
-    
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="text-xl mb-4">
@@ -27,7 +24,7 @@ const TicTacToe = () => {
           <button
             key={index}
             className={`w-16 h-16 text-2xl font-bold ${
-              winner && winner === value ? "text-red-600" : "text-gray-800"
+              winner && winner === value ? "text-green-600" : "text-gray-800"
             } border border-gray-300 rounded-md transition-colors duration-300 hover:bg-gray-200`}
             onClick={() => handleClick(index)}
             disabled={winner || isDraw || value !== null}
